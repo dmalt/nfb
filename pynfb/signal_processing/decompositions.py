@@ -5,7 +5,9 @@ from mne.preprocessing import ICA
 
 from ..signal_processing.filters import SpatialFilter, ButterFilter, FilterSequence, FilterStack, SpatialRejection
 from ..signal_processing.helpers import get_outliers_mask, stimulus_split
-from ..widgets.helpers import ch_names_to_2d_pos
+from ..signals.rejections import SpatialRejection
+# from ..widgets.helpers import ch_names_to_2d_pos
+from ..widgets.helpers import project_to_2d
 from scipy.signal import butter, filtfilt
 from scipy.linalg import eigh, inv
 from sklearn.metrics import mutual_info_score
@@ -23,12 +25,13 @@ def mutual_info(x, y, bins=100):
 
 
 class SpatialDecomposition:
-    def __init__(self, channel_names, fs, band=None):
+    def __init__(self, channel_names, ch_pos, fs, band=None):
         self.channel_names = channel_names
-        self.pos = ch_names_to_2d_pos(channel_names)
+        # self.pos = ch_names_to_2d_pos(channel_names)
+        self.pos = project_to_2d(ch_pos)
         self.fs = fs
         self.band = band if band else BAND_DEFAULT
-        self.temporal_filter = ButterFilter(self.band, fs, len(channel_names))
+        self.temporal_filter = ButterFilter(self.band, fs, len(ch_pos))
         self.filters = None  # un-mixing matrix
         self.topographies = None  # transposed mixing matrix
         self.scores = None  # eigenvalues (squared de-synchronization)
@@ -36,7 +39,9 @@ class SpatialDecomposition:
         self.outliers_mask = None
 
     def fit(self, X, y=None):
+        print('SpatialDecomposition: X.shape before temporal_filter = ', X.shape)
         X = self.temporal_filter.apply(X)
+        print('SpatialDecomposition: X.shape after temporal_filter = ', X.shape)
         self.outliers_mask = get_outliers_mask(X)
         good_mask = ~self.outliers_mask
         self.scores, self.filters, self.topographies = self.decompose(X[good_mask], y[good_mask] if y is not None else None)
@@ -117,14 +122,15 @@ class CSPDecompositionStimulus(CSPDecomposition):
 
 
 class ICADecomposition(SpatialDecomposition):
-    def __init__(self, channel_names, fs, band=None):
-        super(ICADecomposition, self).__init__(channel_names, fs, band)
+    def __init__(self, channel_names, channel_pos, fs, band=None):
+        super(ICADecomposition, self).__init__(channel_names, channel_pos, fs, band)
         self.sorted_channel_index = 0
         self.name = 'ica'
 
     def decompose(self, X, y=None):
         raw_inst = RawArray(X.T, create_info(self.channel_names, self.fs, 'eeg', None))
         ica = ICA(method='extended-infomax')
+        print('ICADecomposition: X.shape = ', X.shape)
         ica.fit(raw_inst)
         filters = np.dot(ica.unmixing_matrix_, ica.pca_components_[:ica.n_components_]).T
         topographies = np.linalg.inv(filters).T

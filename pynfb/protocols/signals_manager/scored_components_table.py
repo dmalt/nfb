@@ -35,21 +35,21 @@ class BarLabelWidget(QtWidgets.QWidget):
         qp.drawText(1, size.height()//2 + 1, str(round(self.value, 5)))
 
 
-class TopoFilterCavas(QtWidgets.QWidget):
-    def __init__(self, parent, names, topo, filter, size):
+class TopoFilterCavas(QtGui.QWidget):
+    def __init__(self, parent, names, topo, filter, size, pos):
         super(TopoFilterCavas, self).__init__(parent)
 
         # topography layout
         topo_canvas = TopographicMapCanvas()
         topo_canvas.setMaximumWidth(size)
         topo_canvas.setMaximumHeight(size)
-        topo_canvas.update_figure(topo, names=names, show_names=[], show_colorbar=False)
+        topo_canvas.update_figure(topo, pos=pos, names=names, show_names=[], show_colorbar=False)
 
         # filter layout
         filter_canvas = TopographicMapCanvas()
         filter_canvas.setMaximumWidth(size)
         filter_canvas.setMaximumHeight(size)
-        filter_canvas.update_figure(filter, names=names, show_names=[], show_colorbar=False)
+        filter_canvas.update_figure(filter, pos=pos, names=names, show_names=[], show_colorbar=False)
         filter_canvas.setHidden(True)
 
         # layout
@@ -79,7 +79,7 @@ class ScoredComponentsTable(QtWidgets.QTableWidget):
     more_one_selected = QtCore.pyqtSignal()
     no_one_selected = QtCore.pyqtSignal()
 
-    def __init__(self, time_series, topographies, filters, channel_names, fs, scores, scores_name='Mutual info', marks=None, *args):
+    def __init__(self, time_series, topographies, filters, channel_names, fs, scores, pos, scores_name='Mutual info', marks=None, *args):
         super(ScoredComponentsTable, self).__init__(*args)
 
         # attributes
@@ -110,7 +110,7 @@ class ScoredComponentsTable(QtWidgets.QTableWidget):
 
             # topographies and filters
             topo_filter = TopoFilterCavas(self, self.channel_names, topographies[:, ind], filters[:, ind],
-                                          self.row_items_max_height)
+                                          self.row_items_max_height, pos)
             self.topographies_items.append(topo_filter)
             self.setCellWidget(ind, self.columns.index('Topography'), topo_filter)
 

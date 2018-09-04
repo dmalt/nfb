@@ -17,6 +17,8 @@ from ...signal_processing.decompositions import CSPDecomposition, ICADecompositi
 from ...signal_processing.helpers import stimulus_split
 from time import time
 
+from ...widgets.helpers import project_to_2d
+
 def mutual_info(x, y, bins=100):
     c_xy = np.histogram2d(x, y, bins)[0]
     mi = mutual_info_score(None, None, contingency=c_xy)
@@ -24,26 +26,26 @@ def mutual_info(x, y, bins=100):
 
 
 class ICADialog(QtWidgets.QDialog):
-    def __init__(self, raw_data, channel_names, fs, parent=None, decomposition=None, mode='ica', filters=None,
+    def __init__(self, raw_data, channel_names, channel_pos, fs, parent=None, decomposition=None, mode='ica', filters=None,
                  scores=None, states=None, labels=None, _stimulus_split=False, marks=None):
         super(ICADialog, self).__init__(parent)
         self.setWindowTitle(mode.upper())
-        self.setMinimumWidth(800)
-        self.setMinimumHeight(400)
-
+        self.setMinimumWidth(1200)
+        self.setMinimumHeight(800)
 
         if decomposition is None:
             if mode == 'csp':
                 if not _stimulus_split:
-                    self.decomposition = CSPDecomposition(channel_names, fs)
+                    self.decomposition = CSPDecomposition(channel_pos, fs)
                     if labels is None:
                         labels = np.zeros(raw_data.shape[0])
                         labels[len(labels)//2:] = 1
                 else:
-                    self.decomposition = CSPDecompositionStimulus(channel_names, fs)
+                    self.decomposition = CSPDecompositionStimulus(channel_pos, fs)
                     labels = marks
             elif mode == 'ica':
-                self.decomposition = ICADecomposition(channel_names, fs)
+                self.decomposition = ICADecomposition(channel_names,
+                                                      channel_pos, fs)
         else:
             self.decomposition = decomposition
 
@@ -75,16 +77,17 @@ class ICADialog(QtWidgets.QDialog):
 
         scores_name = 'Mutual info' if mode == 'ica' else 'Eigenvalues'
         # table
+        pos = project_to_2d(channel_pos)
         self.table = ScoredComponentsTable(self.components, self.topographies, self.unmixing_matrix, channel_names, fs,
-                                           self.scores, scores_name=scores_name, marks=marks if _stimulus_split else None)
+                                           self.scores, pos, scores_name=scores_name, marks=marks if _stimulus_split else None)
         print('Table drawing time elapsed = {}s'.format(time() - timer))
 
         # reject selected button
         self.reject_button = QtWidgets.QPushButton('Reject selection')
         self.spatial_button = QtWidgets.QPushButton('Make spatial filter')
         self.add_to_all_checkbox = QtWidgets.QCheckBox('Add to all signals')
-        self.reject_button.setMaximumWidth(150)
-        self.spatial_button.setMaximumWidth(150)
+        self.reject_button.setMaximumWidth(250)
+        self.spatial_button.setMaximumWidth(250)
         self.reject_button.clicked.connect(self.reject_and_close)
         self.spatial_button.clicked.connect(self.spatial_and_close)
 

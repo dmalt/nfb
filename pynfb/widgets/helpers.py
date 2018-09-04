@@ -31,6 +31,13 @@ def ch_names_to_2d_pos(list_of_ch_names, kind='standard_1005', azimuthal=True):
     return array(pos)
 
 
+def project_to_2d(pos_3d, azimuthal=True):
+    # import ipdb; ipdb.set_trace()
+    print(pos_3d)
+    pos = pos_3d[:, :2] if not azimuthal else azimuthal_equidistant_projection(pos_3d[:, :3])
+    return array(pos)
+
+
 def validate_ch_names(list_of_ch_names, kind='standard_1005'):
     montage = read_montage(kind)
     upper_list_of_ch_names = [ch.upper() for ch in list_of_ch_names]
