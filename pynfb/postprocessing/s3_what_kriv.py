@@ -3,16 +3,16 @@ import pylab as plt
 import h5py
 import mne
 from mne.viz import plot_topomap
-from pynfb.widgets.helpers import ch_names_to_2d_pos
+from vendor.nfb.pynfb.widgets.helpers import ch_names_to_2d_pos
 from scipy.signal import welch, hilbert
-from pynfb.postprocessing.utils import get_info, add_data_simple, fft_filter, dc_blocker, load_rejections
+from vendor.nfb.pynfb.postprocessing.utils import get_info, add_data_simple, fft_filter, dc_blocker, load_rejections
 from collections import OrderedDict
 from IPython.display import clear_output
 
 # load raw
 from json import loads
 
-from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
 
 settings_file = 'C:\_NFB\old_desctop\\kriv\\vnd_spbu_5days.json'
 with open(settings_file, 'r') as f:

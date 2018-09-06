@@ -6,8 +6,8 @@ import numpy as np
 from matplotlib import cm
 from pyqtgraph import opengl as gl
 
-from pynfb.protocols import Protocol
-from pynfb.protocols.widgets import Painter
+from vendor.nfb.pynfb.protocols import Protocol
+from vendor.nfb.pynfb.protocols.widgets import Painter
 
 
 class SourceSpaceRecontructor(Protocol):

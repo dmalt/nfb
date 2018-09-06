@@ -1,4 +1,4 @@
-from pynfb.postprocessing.mu_or_not.meta import *
+from vendor.nfb.pynfb.postprocessing.mu_or_not.meta import *
 subj = 'p4'
 data = pd.DataFrame()
 subjects = ['p4', 'p7', 'p8', 'p9', 'p10', 'p11', 'p12', 'p13', 'p22', 'p23', 'p24', 'p25', 'p6', 'VV', 'VG', 'IO', 'KM']

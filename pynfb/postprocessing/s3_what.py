@@ -4,7 +4,7 @@ import h5py
 import mne
 
 from scipy.signal import welch, hilbert
-from pynfb.postprocessing.utils import get_info, add_data_simple, get_colors, fft_filter, dc_blocker, load_rejections
+from vendor.nfb.pynfb.postprocessing.utils import get_info, add_data_simple, get_colors, fft_filter, dc_blocker, load_rejections
 from collections import OrderedDict
 from IPython.display import clear_output
 

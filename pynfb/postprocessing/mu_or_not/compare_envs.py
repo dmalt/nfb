@@ -1,4 +1,4 @@
-from pynfb.postprocessing.mu_or_not.meta import *
+from vendor.nfb.pynfb.postprocessing.mu_or_not.meta import *
 montage = Montage(channels)
 subjects = ['p8', 'p10', 'p13', 'p6', 'VV']
 subj = subjects[4]

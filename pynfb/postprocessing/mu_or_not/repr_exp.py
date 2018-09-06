@@ -2,11 +2,11 @@ from scipy.io import loadmat
 import pandas as pd
 from scipy.signal import hilbert, welch
 import pylab as plt
-from pynfb.postprocessing.utils import fft_filter
-from pynfb.signal_processing.helpers import get_outliers_mask
+from vendor.nfb.pynfb.postprocessing.utils import fft_filter
+from vendor.nfb.pynfb.signal_processing.helpers import get_outliers_mask
 import numpy as np
-from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
 from PyQt5 import QtGui, QtWidgets
+from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
 
 fs = 1000
 band = (8, 14)

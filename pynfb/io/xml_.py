@@ -4,7 +4,7 @@ from collections import OrderedDict
 from .defaults import *
 from numpy import array
 import xml.etree.ElementTree as ET
-from pynfb.signals import DerivedSignal
+from vendor.nfb.pynfb.signals import DerivedSignal
 
 
 
@@ -149,7 +149,7 @@ def get_lsl_info_from_xml(xml_str_or_file):
 if __name__ == '__main__':
     #odict = xml_file_to_params('settings/pilot.xml')
     #params_to_xml_file(odict, 'settings/pilot_rewrite.xml')
-    from pynfb.io.hdf5 import load_xml_str_from_hdf5_dataset
+    from vendor.nfb.pynfb.io.hdf5 import load_xml_str_from_hdf5_dataset
     xml_str = load_xml_str_from_hdf5_dataset('../results/experiment_03-07_13-23-46/experiment_data.h5',
                                              'stream_info.xml')
     print(get_lsl_info_from_xml(xml_str))

@@ -4,14 +4,14 @@ import h5py
 import mne
 
 from scipy.signal import welch, hilbert
-from pynfb.postprocessing.utils import get_info, add_data_simple, get_colors, fft_filter, dc_blocker, load_rejections
+from vendor.nfb.pynfb.postprocessing.utils import get_info, add_data_simple, get_colors, fft_filter, dc_blocker, load_rejections
 from collections import OrderedDict
 from IPython.display import clear_output
 
 # load raw
 from json import loads
 
-from pynfb.widgets.helpers import ch_names_to_2d_pos
+from vendor.nfb.pynfb.widgets.helpers import ch_names_to_2d_pos
 
 settings_file = 'D:\\vnd_spbu\\pilot\\mu5days\\vnd_spbu_5days.json'
 with open(settings_file, 'r') as f:
@@ -30,7 +30,7 @@ def preproc(x, fs, rej=None):
     return x
 
 
-from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
 from PyQt5 import QtGui, QtWidgets
 
 a = QtWidgets.QApplication([])

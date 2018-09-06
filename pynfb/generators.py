@@ -6,10 +6,10 @@ import numpy as np
 from pylsl import StreamInfo, StreamOutlet
 import mne
 
-from pynfb.io.brainvision import read_raw_brainvision
-from pynfb.io.hdf5 import load_h5py_all_samples, load_xml_str_from_hdf5_dataset, DatasetNotFound
-from pynfb.io.xml_ import get_lsl_info_from_xml
-from pynfb.inlets.channels_selector import ChannelsSelector
+from vendor.nfb.pynfb.io.brainvision import read_raw_brainvision
+from vendor.nfb.pynfb.io.hdf5 import load_h5py_all_samples, load_xml_str_from_hdf5_dataset, DatasetNotFound
+from vendor.nfb.pynfb.io.xml_ import get_lsl_info_from_xml
+from vendor.nfb.pynfb.inlets.channels_selector import ChannelsSelector
 
 ch_names = ['Fp1', 'Fp2', 'F7', 'F3', 'Fz', 'F4', 'F8', 'Ft9', 'Fc5', 'Fc1', 'Fc2', 'Fc6', 'Ft10', 'T7', 'C3', 'Cz',
             'C4', 'T8', 'Tp9', 'Cp5', 'Cp1', 'Cp2', 'Cp6', 'Tp10', 'P7', 'P3', 'Pz', 'P4', 'P8', 'O1', 'Oz', 'O2',

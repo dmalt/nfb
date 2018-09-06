@@ -2,7 +2,7 @@ import mne
 import numpy as np
 import pylab as plt
 
-from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
 
 mne.utils.set_config("SUBJECTS_DIR", 'av_brain', set_env=True)
 
@@ -38,7 +38,7 @@ if not real:
     fs = 500
 else:
     import h5py
-    from pynfb.postprocessing.utils import get_info
+    from vendor.nfb.pynfb.postprocessing.utils import get_info
     with h5py.File(r'D:\mu_ica\mu_ica\mu_ica_S1_D3_04-21_18-16-03\experiment_data.h5') as f:
         fs, channels, p_names = get_info(f, [])
         data = f['protocol{}/raw_data'.format(p_names.index('Baseline') + 1)][:].T
@@ -125,13 +125,13 @@ w = np.dot(noise_norm.flatten()*label_flip/len(label_flip), K)
 
 plt.plot(np.dot(w, data), 'k--')
 plt.figure()
-from pynfb.widgets.helpers import ch_names_to_2d_pos
+from vendor.nfb.pynfb.widgets.helpers import ch_names_to_2d_pos
 mne.viz.plot_topomap(w, info)
 
 
 
 # back engineering flip
-#from pynfb.helpers.mne_source_estimate import extract_label_time_course
+#from vendor.nfb.pynfb.helpers.mne_source_estimate import extract_label_time_course
 #stc = mne.minimum_norm.apply_inverse_raw(raw, inv, 0.1, method=method, prepared=True)
 #plt.plot(mne.extract_label_time_course(stc, roi_label, inv['src'], mode='mean_flip')[0], 'k--')
 plt.show()

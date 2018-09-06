@@ -1,7 +1,7 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 import numpy as np
-from pynfb.widgets.helpers import ch_names_to_2d_pos
+from vendor.nfb.pynfb.widgets.helpers import ch_names_to_2d_pos
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 from matplotlib import rcParams
@@ -78,7 +78,7 @@ class TopographicMapCanvas(FigureCanvas):
 
     def test_update_figure(self):
 
-        from pynfb.inlets.montage import Montage
+        from vendor.nfb.pynfb.inlets.montage import Montage
         montage = Montage(names=['Fp1', 'Fp2', 'Cz', 'AUX', 'MEG 2632'])
         print(montage)
         data = np.random.randn(3)
@@ -86,4 +86,11 @@ class TopographicMapCanvas(FigureCanvas):
         self.update_figure(data=data, pos=pos, names=['c1', 'c2', 'oz'], montage=montage)
 
 
-
+if __name__ == '__main__':
+    qApp = QtGui.QApplication(sys.argv)
+    aw = TopographicMapCanvas()
+    timer = QtCore.QTimer(qApp)
+    timer.timeout.connect(aw.test_update_figure)
+    timer.start(1000)
+    aw.show()
+    sys.exit(qApp.exec_())

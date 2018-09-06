@@ -3,18 +3,18 @@ from copy import deepcopy
 from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
-from pynfb.inlets.montage import Montage
-from pynfb.protocols import SelectSSDFilterWidget
-from pynfb.protocols.signals_manager.band_selector import BandSelectorWidget
-from pynfb.protocols.ssd.topomap_canvas import TopographicMapCanvas
-from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
-from pynfb.widgets.rejections_editor import RejectionsWidget
-from pynfb.widgets.spatial_filter_setup import SpatialFilterSetup
-from pynfb.widgets.check_table import CheckTable
-from pynfb.signals import DerivedSignal, BCISignal
+from vendor.nfb.pynfb.inlets.montage import Montage
+from vendor.nfb.pynfb.protocols import SelectSSDFilterWidget
+from vendor.nfb.pynfb.protocols.signals_manager.band_selector import BandSelectorWidget
+from vendor.nfb.pynfb.protocols.ssd.topomap_canvas import TopographicMapCanvas
+from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+from vendor.nfb.pynfb.widgets.rejections_editor import RejectionsWidget
+from vendor.nfb.pynfb.widgets.spatial_filter_setup import SpatialFilterSetup
+from vendor.nfb.pynfb.widgets.check_table import CheckTable
+from vendor.nfb.pynfb.signals import DerivedSignal, BCISignal
 from numpy import dot, concatenate, array
 import numpy as np
-from pynfb.widgets.bci_fit import BCIFitWidget
+from vendor.nfb.pynfb.widgets.bci_fit import BCIFitWidget
 
 
 class SignalsTable(QtWidgets.QTableWidget):
@@ -477,14 +477,14 @@ if __name__ == '__main__':
     channels = ['Fc1', 'Fc3', 'Fc5', 'C1', 'C3', 'C5', 'Cp1', 'Cp3', 'Cp5', 'Cz', 'Pz',
                 'Cp2', 'Cp4', 'Cp6', 'C2', 'C4', 'C6', 'Fc2', 'Fc4', 'Fc6']
     n_ch = len(channels)
-    from pynfb.signals import CompositeSignal
+    from vendor.nfb.pynfb.signals import CompositeSignal
     signals = [DerivedSignal(ind = k, source_freq=500, name='Signal'+str(k), bandpass_low=0+k, bandpass_high=1+10*k, spatial_filter=np.array([k]), n_channels=n_ch) for k in range(3)]
     signals +=[CompositeSignal(signals, '', 'Composite', 3, fs=500)]
     signals += [BCISignal(500, channels, 'bci', n_ch)]
     app = QtWidgets.QApplication([])
 
     x = np.random.randn(5000, n_ch)
-    from pynfb.widgets.helpers import ch_names_to_2d_pos
+    from vendor.nfb.pynfb.widgets.helpers import ch_names_to_2d_pos
 
     #x[2500:3000, channels.index('Cz')] /= 50
 

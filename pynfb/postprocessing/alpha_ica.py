@@ -5,14 +5,14 @@ import pandas as pd
 from collections import OrderedDict
 from json import loads
 from mne.viz import plot_topomap
-from pynfb.postprocessing.utils import get_info, add_data, get_colors_f, fft_filter, dc_blocker, load_rejections, \
+from vendor.nfb.pynfb.postprocessing.utils import get_info, add_data, get_colors_f, fft_filter, dc_blocker, load_rejections, \
     find_lag
-from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
 from scipy.signal import welch, hilbert
 
 
 # load raw
-from pynfb.widgets.helpers import ch_names_to_2d_pos
+from vendor.nfb.pynfb.widgets.helpers import ch_names_to_2d_pos
 
 mock = False
 

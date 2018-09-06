@@ -1,8 +1,8 @@
 import pandas as pd
-from pynfb.postprocessing.utils import load_data, runica2
-from pynfb.signal_processing.helpers import get_outliers_mask
+from vendor.nfb.pynfb.postprocessing.utils import load_data, runica2
+from vendor.nfb.pynfb.signal_processing.helpers import get_outliers_mask
 import numpy as np
-from pynfb.inlets.montage import Montage
+from vendor.nfb.pynfb.inlets.montage import Montage
 from mne.viz import plot_topomap
 import pylab as plt
 

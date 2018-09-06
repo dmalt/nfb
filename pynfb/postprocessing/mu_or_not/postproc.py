@@ -2,9 +2,9 @@ from scipy.io import loadmat
 import pandas as pd
 from scipy.signal import hilbert, welch
 import pylab as plt
-from pynfb.postprocessing.utils import fft_filter
+from vendor.nfb.pynfb.postprocessing.utils import fft_filter
 import numpy as np
-from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
 
 df = pd.read_pickle('p4')
 fs = 1000

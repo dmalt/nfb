@@ -1,4 +1,4 @@
-from pynfb.inlets.lsl_inlet import LSLInlet
+from vendor.nfb.pynfb.inlets.lsl_inlet import LSLInlet
 from time import sleep, time
 import rpyc
 

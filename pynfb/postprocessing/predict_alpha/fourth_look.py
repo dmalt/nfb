@@ -2,12 +2,12 @@ from scipy.io import loadmat
 from scipy.stats import skew, kurtosis
 import numpy as np
 import pylab as plt
-from pynfb.postprocessing.utils import band_hilbert
+from vendor.nfb.pynfb.postprocessing.utils import band_hilbert
 import seaborn as sns
 from sklearn.mixture import GaussianMixture
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import RobustScaler
-from pynfb.signal_processing.filters import ButterBandEnvelopeDetector, ExponentialSmoother
+from vendor.nfb.pynfb.signal_processing.filters import ButterBandEnvelopeDetector, ExponentialSmoother
 import pandas as pd
 
 cm = sns.color_palette()

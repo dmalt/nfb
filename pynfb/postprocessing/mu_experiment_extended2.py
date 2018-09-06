@@ -7,12 +7,12 @@ from mne.viz import plot_topomap
 from scipy.signal import hilbert, firwin2, filtfilt
 from scipy.fftpack import rfft, irfft, fftfreq
 
-from pynfb.io.xml_ import get_lsl_info_from_xml
-from pynfb.signals.rejections import Rejections
-from pynfb.signal_processing.filters import SpatialRejection
+from vendor.nfb.pynfb.io.xml_ import get_lsl_info_from_xml
+from vendor.nfb.pynfb.signals.rejections import Rejections
+from vendor.nfb.pynfb.signal_processing.filters import SpatialRejection
 import seaborn as sns
 
-from pynfb.widgets.helpers import ch_names_to_2d_pos
+from vendor.nfb.pynfb.widgets.helpers import ch_names_to_2d_pos
 
 
 def dc_blocker(x, r=0.99):

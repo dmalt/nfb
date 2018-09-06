@@ -6,9 +6,9 @@ import pylab as plt
 import seaborn as sns
 from mne.viz import plot_topomap
 
-from pynfb.io.xml_ import get_lsl_info_from_xml
-from pynfb.postprocessing.utils import fft_filter, load_rejections, get_info, get_protocol_power, get_colors, add_data
-from pynfb.widgets.helpers import ch_names_to_2d_pos
+from vendor.nfb.pynfb.io.xml_ import get_lsl_info_from_xml
+from vendor.nfb.pynfb.postprocessing.utils import fft_filter, load_rejections, get_info, get_protocol_power, get_colors, add_data
+from vendor.nfb.pynfb.widgets.helpers import ch_names_to_2d_pos
 
 
 def plot_results(pilot_dir, subj, channel, alpha_band=(9, 14), theta_band=(3, 6), drop_channels=None, dc=False,

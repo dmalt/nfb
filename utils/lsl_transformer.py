@@ -1,5 +1,5 @@
-from pynfb.inlets.lsl_inlet import LSLInlet
-from pynfb.outlets.signals_outlet import SignalsOutlet
+from vendor.nfb.pynfb.inlets.lsl_inlet import LSLInlet
+from vendor.nfb.pynfb.outlets.signals_outlet import SignalsOutlet
 from time import sleep
 
 

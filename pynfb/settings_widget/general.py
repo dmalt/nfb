@@ -1,6 +1,6 @@
 from PyQt5 import QtGui, QtWidgets
 from PyQt5.QtCore import pyqtSignal
-from pynfb.helpers.beep import SingleBeep
+from vendor.nfb.pynfb.helpers.beep import SingleBeep
 from .inlet import InletSettingsWidget, EventsInletSettingsWidget
 
 

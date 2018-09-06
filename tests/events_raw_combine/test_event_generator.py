@@ -1,5 +1,5 @@
-from pynfb.generators import stream_generator_in_a_thread, run_events_sim
-from pynfb.inlets.lsl_inlet import LSLInlet
+from vendor.nfb.pynfb.generators import stream_generator_in_a_thread, run_events_sim
+from vendor.nfb.pynfb.inlets.lsl_inlet import LSLInlet
 import time
 
 if __name__ == '__main__':

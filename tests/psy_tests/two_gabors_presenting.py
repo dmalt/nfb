@@ -6,7 +6,7 @@ import expyriment.stimuli.extras
 from PyQt5 import QtCore, QtGui, QtWidgets
 import numpy as np
 
-from pynfb.helpers.gabor import GaborPatch
+from vendor.nfb.pynfb.helpers.gabor import GaborPatch
 
 
 def run_exp():

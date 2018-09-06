@@ -1,7 +1,7 @@
 import pandas as pd
-from pynfb.postprocessing.utils import load_data, runica2, band_hilbert, get_main_band, get_main_freq
+from vendor.nfb.pynfb.postprocessing.utils import load_data, runica2, band_hilbert, get_main_band, get_main_freq
 import numpy as np
-from pynfb.inlets.montage import Montage
+from vendor.nfb.pynfb.inlets.montage import Montage
 from mne.viz import plot_topomap
 import pylab as plt
 from scipy.signal import welch

@@ -6,9 +6,9 @@ from scipy.signal import butter, lfilter, filtfilt
 from scipy.linalg import eigh, inv, eig
 import numpy as np
 
-from pynfb.io.xml_ import get_lsl_info_from_xml
-from pynfb.postprocessing.mu_experiment import dc_blocker, fft_filter
-from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+from vendor.nfb.pynfb.io.xml_ import get_lsl_info_from_xml
+from vendor.nfb.pynfb.postprocessing.mu_experiment import dc_blocker, fft_filter
+from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
 
 
 def csp3(x_dict, fs, band, butter_order=6, regularization_coef=0.1, lambda_=0.5):

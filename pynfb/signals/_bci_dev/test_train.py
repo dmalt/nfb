@@ -1,9 +1,9 @@
-from pynfb.signals._bci_dev.bcimodel_draft import BCIModel
-from pynfb.signal_processing.filters import ButterFilter, FilterStack, InstantaneousVarianceFilter, FilterSequence
-from pynfb.signal_processing.decompositions import SpatialDecompositionPool
+from vendor.nfb.pynfb.signals._bci_dev.bcimodel_draft import BCIModel
+from vendor.nfb.pynfb.signal_processing.filters import ButterFilter, FilterStack, InstantaneousVarianceFilter, FilterSequence
+from vendor.nfb.pynfb.signal_processing.decompositions import SpatialDecompositionPool
 import numpy as np
 import pylab as plt
-from pynfb.helpers.dc_blocker import DCBlocker
+from vendor.nfb.pynfb.helpers.dc_blocker import DCBlocker
 
 from sklearn.neural_network import MLPClassifier
 
@@ -35,7 +35,7 @@ print('eeg_data shape:', eeg_data.shape, 'labels shape:', labels.shape)
 #eeg_data, labels = BCIModel.remove_outliers(eeg_data.T, labels[None,:], 7)
 #eeg_data = eeg_data.T
 #n_samples = eeg_data.shape[0]
-#from pynfb.signal_processing.helpers import get_outliers_mask
+#from vendor.nfb.pynfb.signal_processing.helpers import get_outliers_mask
 #eeg_data[get_outliers_mask(eeg_data), :] = 0
 
 

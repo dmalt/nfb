@@ -32,7 +32,7 @@ with open(settings_file, 'r') as f:
 
 
 from collections import OrderedDict
-from pynfb.postprocessing.utils import load_rejections, get_info, fft_filter, dc_blocker, get_colors
+from vendor.nfb.pynfb.postprocessing.utils import load_rejections, get_info, fft_filter, dc_blocker, get_colors
 cm = get_colors()
 
 

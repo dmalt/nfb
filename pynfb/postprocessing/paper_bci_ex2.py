@@ -1,12 +1,12 @@
-from pynfb.postprocessing.utils import get_info, fft_filter
+from vendor.nfb.pynfb.postprocessing.utils import get_info, fft_filter
 import h5py
 import numpy as np
 import pandas as pd
 import seaborn as sns
 import pylab as plt
-from pynfb.signal_processing.decompositions import ICADecomposition
+from vendor.nfb.pynfb.signal_processing.decompositions import ICADecomposition
 from mne.viz import plot_topomap
-from pynfb.inlets.montage import Montage
+from vendor.nfb.pynfb.inlets.montage import Montage
 from scipy.signal import hilbert
 
 df = pd.read_csv('wow_ex.csv')

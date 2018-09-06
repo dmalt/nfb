@@ -7,10 +7,10 @@ full_path = os.path.realpath(os.path.dirname(os.path.realpath(__file__))+'/..')
 STATIC_PATH = os.path.realpath(os.path.dirname(os.path.realpath(__file__)) + '/static') #TODO
 print(full_path)
 sys.path.insert(0, full_path)
-from pynfb.settings_widget import SettingsWidget
+from vendor.nfb.pynfb.settings_widget import SettingsWidget
 from PyQt5 import QtGui, QtWidgets
 import sys
-from pynfb.io.xml_ import *
+from vendor.nfb.pynfb.io.xml_ import *
 
 
 class TheMainWindow(QtWidgets.QMainWindow):

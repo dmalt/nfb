@@ -1,8 +1,8 @@
 import os
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
-from pynfb.experiment import Experiment
-from pynfb.io.xml_ import xml_file_to_params
+from vendor.nfb.pynfb.experiment import Experiment
+from vendor.nfb.pynfb.io.xml_ import xml_file_to_params
 
 def main():
 

@@ -1,9 +1,9 @@
 import numpy as np
-from pynfb.io import save_spatial_filter, read_spatial_filter
-from pynfb.signal_processing.filters import ExponentialSmoother, SGSmoother, FFTBandEnvelopeDetector, \
+from vendor.nfb.pynfb.io import save_spatial_filter, read_spatial_filter
+from vendor.nfb.pynfb.signal_processing.filters import ExponentialSmoother, SGSmoother, FFTBandEnvelopeDetector, \
     ComplexDemodulationBandEnvelopeDetector, ButterBandEnvelopeDetector, ScalarButterFilter, IdentityFilter, \
     FilterSequence, DelayFilter, CFIRBandEnvelopeDetector
-from pynfb.signals.rejections import Rejections
+from vendor.nfb.pynfb.signals.rejections import Rejections
 
 ENVELOPE_DETECTOR_TYPE_DEFAULT = 'fft'
 ENVELOPE_DETECTOR_KWARGS_DEFAULT = {

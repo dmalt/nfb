@@ -24,7 +24,7 @@ if room == '111-eeg':
 else:
     with h5py.File(rooms[room]) as f:
         print(list(f.keys()), list(f['protocol1'].keys()))
-        from pynfb.postprocessing.utils import get_info
+        from vendor.nfb.pynfb.postprocessing.utils import get_info
         get_info(f, [])
         data = [f['protocol{}/raw_data'.format(k+1)][:] for k in range(len(f.keys())-3)]
     x = np.concatenate(data)[:500*4*60, 0]

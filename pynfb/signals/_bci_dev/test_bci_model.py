@@ -1,13 +1,13 @@
-from pynfb.helpers.dc_blocker import DCBlocker
-from pynfb.postprocessing.utils import get_info
-from pynfb.signal_processing.filters import ButterFilter, FilterSequence, FilterStack, InstantaneousVarianceFilter
-from pynfb.signal_processing.decompositions import SpatialDecompositionPool
+from vendor.nfb.pynfb.helpers.dc_blocker import DCBlocker
+from vendor.nfb.pynfb.postprocessing.utils import get_info
+from vendor.nfb.pynfb.signal_processing.filters import ButterFilter, FilterSequence, FilterStack, InstantaneousVarianceFilter
+from vendor.nfb.pynfb.signal_processing.decompositions import SpatialDecompositionPool
 from sklearn.neural_network import MLPClassifier
 from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 
-from pynfb.signal_processing.helpers import get_outliers_mask
-from pynfb.signals._bci_dev.bcimodel_draft import BCIModel
+from vendor.nfb.pynfb.signal_processing.helpers import get_outliers_mask
+from vendor.nfb.pynfb.signals._bci_dev.bcimodel_draft import BCIModel
 
 
 class BCISignal():

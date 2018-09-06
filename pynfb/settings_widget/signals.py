@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from pynfb.io.defaults import vectors_defaults as defaults
-from pynfb.settings_widget import FileSelectorLine
+from vendor.nfb.pynfb.io.defaults import vectors_defaults as defaults
+from vendor.nfb.pynfb.settings_widget import FileSelectorLine
 
 default_signal = defaults['vSignals']['DerivedSignal'][0]
 roi_labels = ['CUSTOM', 'bankssts-lh', 'bankssts-rh', 'caudalanteriorcingulate-lh', 'caudalanteriorcingulate-rh',

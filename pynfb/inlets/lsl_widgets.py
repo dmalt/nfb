@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from pylsl import StreamInlet
 from pylsl import resolve_bypred
-from pynfb import STATIC_PATH
+from vendor.nfb.pynfb import STATIC_PATH
 
 
 class ResolveButton(QtWidgets.QPushButton):

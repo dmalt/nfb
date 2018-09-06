@@ -1,6 +1,6 @@
 from collections import namedtuple
 
-from pynfb.io.xml_ import get_lsl_info_from_xml
+from vendor.nfb.pynfb.io.xml_ import get_lsl_info_from_xml
 import numpy as np
 import pylab as plt
 from scipy.signal import hilbert, firwin2, filtfilt

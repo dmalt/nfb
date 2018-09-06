@@ -1,4 +1,4 @@
-from pynfb.protocols.ssd.topomap_canvas import TopographicMapCanvas
+from vendor.nfb.pynfb.protocols.ssd.topomap_canvas import TopographicMapCanvas
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class SpatialFilterWidget(QtWidgets.QWidget):

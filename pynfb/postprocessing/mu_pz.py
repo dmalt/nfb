@@ -1,10 +1,10 @@
 from PyQt5 import QtGui, QtWidgets
 
-from pynfb.io.xml_ import get_lsl_info_from_xml
-from pynfb.signals import DerivedSignal
-from pynfb.widgets.update_signals_dialog import SignalsSSDManager
+from vendor.nfb.pynfb.io.xml_ import get_lsl_info_from_xml
+from vendor.nfb.pynfb.signals import DerivedSignal
+from vendor.nfb.pynfb.widgets.update_signals_dialog import SignalsSSDManager
 
-from pynfb.widgets.helpers import ch_names_to_2d_pos
+from vendor.nfb.pynfb.widgets.helpers import ch_names_to_2d_pos
 import numpy as np
 import pickle
 import os.path

@@ -4,7 +4,7 @@ import numpy as np
 import pyqtgraph as pg
 import time
 
-from pynfb.inlets.lsl_inlet import LSLInlet
+from vendor.nfb.pynfb.inlets.lsl_inlet import LSLInlet
 from scipy.signal import welch
 
 class LSLPlotDataItem(pg.PlotDataItem):

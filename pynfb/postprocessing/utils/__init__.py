@@ -2,7 +2,7 @@ import numpy as np
 from scipy.signal import welch
 from scipy import fftpack
 import h5py
-from pynfb.io.xml_ import get_lsl_info_from_xml
+from vendor.nfb.pynfb.io.xml_ import get_lsl_info_from_xml
 import pandas as pd
 import pylab as plt
 
@@ -196,7 +196,7 @@ def load_signals_data(file_path, drop_channels=()):
 
 def runica(x, fs, channels, mode='ica'):
     from PyQt5.QtWidgets import QApplication
-    from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+    from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
     a = QApplication([])
     ica = ICADialog(x, channels, fs, mode=mode)
     ica.exec_()
@@ -205,7 +205,7 @@ def runica(x, fs, channels, mode='ica'):
 
 def runica2(x, fs, channels, names=('Right', 'Left'), mode='ica'):
     from PyQt5.QtWidgets import QApplication
-    from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+    from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
     a = QApplication([])
     res = []
     decomposition = None
@@ -221,8 +221,8 @@ def runica2(x, fs, channels, names=('Right', 'Left'), mode='ica'):
 
 if __name__ == '__main__':
     from mne.viz import plot_topomap
-    from pynfb.inlets.montage import Montage
-    from pynfb.generators import ch_names32
+    from vendor.nfb.pynfb.inlets.montage import Montage
+    from vendor.nfb.pynfb.generators import ch_names32
     montage = Montage(ch_names32)
     spatial, topo = runica(np.random.normal(size=(100000, 32)), 1000, montage.get_names(), mode='csp')
     plot_topomap(spatial, montage.get_pos())

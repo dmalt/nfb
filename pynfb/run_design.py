@@ -24,8 +24,8 @@ if importlib.util.find_spec('pynfb') is None:
     raise ImportError('Cannot import nfblab package. Please, correct --nfblab value')
 
 # import NFBLab
-from pynfb.experiment import Experiment
-from pynfb.io.xml_ import xml_file_to_params
+from vendor.nfb.pynfb.experiment import Experiment
+from vendor.nfb.pynfb.io.xml_ import xml_file_to_params
 
 # run experiment
 app = QtWidgets.QApplication(sys.argv)

@@ -1,5 +1,5 @@
 import sys
-from pynfb.inlets.FieldTrip import Client as FieldTrip_Client, numpyType
+from vendor.nfb.pynfb.inlets.FieldTrip import Client as FieldTrip_Client, numpyType
 import time
 
 

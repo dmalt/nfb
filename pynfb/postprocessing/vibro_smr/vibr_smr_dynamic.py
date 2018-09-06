@@ -3,10 +3,10 @@ import numpy as np
 from scipy import signal
 import pandas as pd
 import pylab as plt
-from pynfb.signal_processing.helpers import get_outliers_mask
-from pynfb.postprocessing.utils import get_info, fft_filter
-from pynfb.protocols import SelectSSDFilterWidget
-from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+from vendor.nfb.pynfb.signal_processing.helpers import get_outliers_mask
+from vendor.nfb.pynfb.postprocessing.utils import get_info, fft_filter
+from vendor.nfb.pynfb.protocols import SelectSSDFilterWidget
+from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
 from PyQt5.QtWidgets import QApplication
 
 

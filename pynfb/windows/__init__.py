@@ -7,13 +7,13 @@ import pyqtgraph as pg
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import pyqtSignal
 
-from pynfb.brain import SourceSpaceRecontructor
-from pynfb.brain import SourceSpaceWidget
-from pynfb.helpers.dc_blocker import DCBlocker
-from pynfb.protocols.widgets import ProtocolWidget
-from pynfb.widgets.helpers import ch_names_to_2d_pos
-from pynfb.widgets.signals_painter import RawViewer
-from pynfb.widgets.topography import TopomapWidget
+from vendor.nfb.pynfb.brain import SourceSpaceRecontructor
+from vendor.nfb.pynfb.brain import SourceSpaceWidget
+from vendor.nfb.pynfb.helpers.dc_blocker import DCBlocker
+from vendor.nfb.pynfb.protocols.widgets import ProtocolWidget
+from vendor.nfb.pynfb.widgets.helpers import ch_names_to_2d_pos
+from vendor.nfb.pynfb.widgets.signals_painter import RawViewer
+from vendor.nfb.pynfb.widgets.topography import TopomapWidget
 from ..widgets.signal_viewers import RawSignalViewer, DerivedSignalViewer
 
 pg.setConfigOptions(antialias=True)

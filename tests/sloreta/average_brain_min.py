@@ -1,7 +1,7 @@
 import mne
 import numpy as np
 import pylab as plt
-from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
 from mne.minimum_norm.inverse import _assemble_kernel
 
 # get flip
@@ -37,7 +37,7 @@ def get_some_data(real=False):
         fs = 500
     else:
         import h5py
-        from pynfb.postprocessing.utils import get_info
+        from vendor.nfb.pynfb.postprocessing.utils import get_info
         with h5py.File(r'D:\mu_ica\mu_ica\mu_ica_S1_D3_04-21_18-16-03\experiment_data.h5') as f:
             fs, channels, p_names = get_info(f, [])
             data = f['protocol{}/raw_data'.format(p_names.index('Baseline') + 1)][:].T

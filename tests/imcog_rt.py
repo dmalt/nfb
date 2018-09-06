@@ -39,7 +39,7 @@ s_smth = []
 n_window = 8
 k_smth = 0.99
 
-from pynfb.signal_processing.filters import Coherence
+from vendor.nfb.pynfb.signal_processing.filters import Coherence
 coherence = Coherence(500, fs, (8, 12))
 for tt in range(n_window, samples//n_window):
     time = tt * n_window

@@ -3,15 +3,15 @@ import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from pynfb.experiment import Experiment
-from pynfb.io.xml_ import xml_file_to_params
-from pynfb.settings_widget.general import GeneralSettingsWidget
-from pynfb.settings_widget.inlet import InletSettingsWidget
-from pynfb.settings_widget.protocol_sequence import ProtocolSequenceSettingsWidget
-from pynfb.settings_widget.protocols import ProtocolsSettingsWidget, FileSelectorLine
-from pynfb.settings_widget.signals import SignalsSettingsWidget
-from pynfb.settings_widget.composite_signals import CompositeSignalsSettingsWidget
-from pynfb.settings_widget.protocols_group import ProtocolGroupsSettingsWidget
+from vendor.nfb.pynfb.experiment import Experiment
+from vendor.nfb.pynfb.io.xml_ import xml_file_to_params
+from vendor.nfb.pynfb.settings_widget.general import GeneralSettingsWidget
+from vendor.nfb.pynfb.settings_widget.inlet import InletSettingsWidget
+from vendor.nfb.pynfb.settings_widget.protocol_sequence import ProtocolSequenceSettingsWidget
+from vendor.nfb.pynfb.settings_widget.protocols import ProtocolsSettingsWidget, FileSelectorLine
+from vendor.nfb.pynfb.settings_widget.signals import SignalsSettingsWidget
+from vendor.nfb.pynfb.settings_widget.composite_signals import CompositeSignalsSettingsWidget
+from vendor.nfb.pynfb.settings_widget.protocols_group import ProtocolGroupsSettingsWidget
 
 static_path = os.path.realpath(os.path.dirname(os.path.realpath(__file__)) + '/static')
 

@@ -79,7 +79,7 @@ def get_roi_filter(label_name, fs, channels, show=False, method='sLORETA', lambd
 
 
 if __name__ == '__main__':
-    from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+    from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
     def get_some_data(real=False):
         if not real:
             channels = ['Fp1', 'Fp2', 'F7', 'F3', 'Fz', 'F4', 'F8', 'Ft9', 'Fc5', 'Fc1', 'Fc2', 'Fc6', 'Ft10', 'T7',
@@ -90,7 +90,7 @@ if __name__ == '__main__':
             fs = 500
         else:
             import h5py
-            from pynfb.postprocessing.utils import get_info
+            from vendor.nfb.pynfb.postprocessing.utils import get_info
             with h5py.File(r'D:\mu_ica\mu_ica\mu_ica_S1_D3_04-21_18-16-03\experiment_data.h5') as f:
                 fs, channels, p_names = get_info(f, [])
                 data = f['protocol{}/raw_data'.format(p_names.index('Baseline') + 1)][:].T

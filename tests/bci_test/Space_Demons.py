@@ -4,7 +4,7 @@ import pygame
 import numpy as np
 import random
 import time
-from pynfb.inlets.lsl_inlet import LSLInlet
+from vendor.nfb.pynfb.inlets.lsl_inlet import LSLInlet
 
 STATIC_PATH = os.path.realpath(os.path.dirname(os.path.realpath(__file__)) + '/static')
 

@@ -2,8 +2,8 @@ from mne.io import read_epochs_eeglab
 import numpy as np
 import pylab as plt
 from scipy.io import loadmat
-from pynfb.widgets.helpers import ch_names_to_2d_pos
-from pynfb.protocols.ssd.topomap_selector_ica import ICADialog
+from vendor.nfb.pynfb.widgets.helpers import ch_names_to_2d_pos
+from vendor.nfb.pynfb.protocols.ssd.topomap_selector_ica import ICADialog
 from PyQt5.QtWidgets import QApplication
 
 fs = 258

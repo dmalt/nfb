@@ -1,7 +1,7 @@
-from pynfb.postprocessing.mu_or_not.meta import *
-from pynfb.signal_processing.decompositions import CSPDecomposition
+from vendor.nfb.pynfb.postprocessing.mu_or_not.meta import *
+from vendor.nfb.pynfb.signal_processing.decompositions import CSPDecomposition
 from mne.viz import plot_topomap
-from pynfb.inlets.montage import Montage
+from vendor.nfb.pynfb.inlets.montage import Montage
 
 group = 'treatment'
 subj = 'p6'

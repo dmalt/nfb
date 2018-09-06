@@ -2,8 +2,8 @@ from PyQt5 import QtCore, QtWidgets
 
 from PyQt5 import QtGui, QtWidgets
 
-from pynfb.io.defaults import vectors_defaults as defaults
-from pynfb.settings_widget import FileSelectorLine
+from vendor.nfb.pynfb.io.defaults import vectors_defaults as defaults
+from vendor.nfb.pynfb.settings_widget import FileSelectorLine
 
 default_signal = defaults['vPGroups']['PGroup'][0]
 

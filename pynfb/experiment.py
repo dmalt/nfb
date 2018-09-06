@@ -5,11 +5,11 @@ import numpy as np
 from PyQt5 import QtCore
 from itertools import zip_longest, chain
 
-from pynfb.inlets.montage import Montage
-from pynfb.postprocessing.plot_all_fb_bars import plot_fb_dynamic
-from pynfb.widgets.channel_trouble import ChannelTroubleWarning
-from pynfb.widgets.helpers import WaitMessage
-from pynfb.outlets.signals_outlet import SignalsOutlet
+from vendor.nfb.pynfb.inlets.montage import Montage
+from vendor.nfb.pynfb.postprocessing.plot_all_fb_bars import plot_fb_dynamic
+from vendor.nfb.pynfb.widgets.channel_trouble import ChannelTroubleWarning
+from vendor.nfb.pynfb.widgets.helpers import WaitMessage
+from vendor.nfb.pynfb.outlets.signals_outlet import SignalsOutlet
 from .generators import run_eeg_sim, stream_file_in_a_thread, stream_generator_in_a_thread
 from .inlets.ftbuffer_inlet import FieldTripBufferInlet
 from .inlets.lsl_inlet import LSLInlet
@@ -462,7 +462,7 @@ class Experiment():
                         self.protocols_sequence.append(self.protocols[names.index(group['sSplitBy'])])
 
         # reward
-        from pynfb.reward import Reward
+        from vendor.nfb.pynfb.reward import Reward
         self.reward = Reward(self.protocols[0].reward_signal_id,
                              threshold=self.protocols[0].reward_threshold,
                              rate_of_increase=self.params['fRewardPeriodS'],

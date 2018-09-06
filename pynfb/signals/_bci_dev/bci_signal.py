@@ -200,7 +200,7 @@ class BCISignal():
 
 
 if __name__ == '__main__':
-    from pynfb.signals._bci_dev.bcimodel_draft import BCIModel
+    from vendor.nfb.pynfb.signals._bci_dev.bcimodel_draft import BCIModel
     model = BCIModel()
     model.fit('sm_ksenia_1.mat')
     signal = BCISignal(model=model)
