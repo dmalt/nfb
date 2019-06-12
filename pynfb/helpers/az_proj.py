@@ -7,12 +7,15 @@ def azimuthal_equidistant_projection(hsp):
     height = 4
     # Calculate angles
     r = np.sqrt(np.sum(hsp ** 2, axis=-1))
+    r[r == 0] = 1
     theta = np.arccos(hsp[:, 2] / r)
     phi = np.arctan2(hsp[:, 1], hsp[:, 0])
 
     # Mark the points that might have caused bad angle estimates
-    iffy = np.nonzero(np.sum(hsp[:, :2] ** 2, axis=-1) ** (1. / 2)
-                      < np.finfo(np.float).eps * 10)
+    iffy = np.nonzero(
+        np.sum(hsp[:, :2] ** 2, axis=-1) ** (1.0 / 2)
+        < np.finfo(np.float).eps * 10
+    )
     theta[iffy] = 0
     phi[iffy] = 0
 
@@ -21,6 +24,7 @@ def azimuthal_equidistant_projection(hsp):
     y = radius * (2.0 * theta / np.pi) * np.sin(phi)
 
     n_channels = len(x)
-    pos = np.c_[x, y, width * np.ones(n_channels),
-                height * np.ones(n_channels)]
+    pos = np.c_[
+        x, y, width * np.ones(n_channels), height * np.ones(n_channels)
+    ]
     return pos

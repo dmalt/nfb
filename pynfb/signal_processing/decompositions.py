@@ -47,10 +47,13 @@ class SpatialDecomposition:
     def fit(self, X, y=None):
         if self.band:
             X = self.temporal_filter.apply(X)
-        self.outliers_mask = get_outliers_mask(X)
-        good_mask = ~self.outliers_mask
+        # self.outliers_mask = get_outliers_mask(X)
+        # good_mask = ~self.outliers_mask
+        # self.scores, self.filters, self.topographies = self.decompose(
+        #     X[good_mask], y[good_mask] if y is not None else None
+        # )
         self.scores, self.filters, self.topographies = self.decompose(
-            X[good_mask], y[good_mask] if y is not None else None
+            X, y if y is not None else None
         )
         return self
 
